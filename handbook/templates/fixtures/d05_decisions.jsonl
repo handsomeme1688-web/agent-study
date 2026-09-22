@@ -1,0 +1,4 @@
+{"type": "tool", "name": "search_docs", "arguments": {"query": "工具 执行", "k": 3}}
+{"type": "final", "answer": "证据不足", "citations": []}
+{"type": "tool", "name": "not_allowed", "arguments": {}}
+{"type": "tool", "name": "search_docs", "arguments": {"query": "工具", "k": true}}

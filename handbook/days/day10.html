@@ -1,0 +1,149 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D10｜开发与留出题集</title><style>body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;line-height:1.8;color:#213047;background:#f5f7fa;margin:0}main{max-width:1140px;margin:0 auto;background:white;padding:42px 48px 80px}h1{font-size:30px;line-height:1.4;color:#102a43}h2{font-size:24px;margin-top:56px;padding-top:15px;border-top:2px solid #d9e2ec;scroll-margin-top:24px}h3{font-size:19px;margin-top:30px;color:#234e70}p,li{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{border:1px solid #d9e2ec;text-align:left;vertical-align:top;padding:10px 12px;overflow-wrap:anywhere}th{background:#eaf0f6}tr:nth-child(even){background:#f8fafc}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px 20px;background:#102a43;color:#eff6ff;border-radius:7px;line-height:1.65}pre code{background:transparent}blockquote{border-left:4px solid #2f6e96;margin:20px 0;padding:12px 18px;background:#eef6fa}a{color:#0b69a3;text-decoration:none}a:hover{text-decoration:underline}.bar{font-size:13px;padding:10px 22px;background:#102a43;color:white;display:flex;justify-content:space-between}.bar a{color:white}details{border:1px solid #d9e2ec;padding:12px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}@media(max-width:720px){main{padding:20px 16px}h1{font-size:25px}table{display:block;overflow:auto}pre{padding:12px}}@media print{body{background:white}main{max-width:none;padding:0}.bar{display:none}h2{page-break-before:always}pre{background:#f4f4f4;color:black}a{color:black}}</style></head><body><div class="bar"><a href="../index.html">30天总目录</a><span>D10 / 30 · 路径与行号版</span></div><main><h1>D10｜开发与留出题集</h1>
+<p><strong>唯一项目根目录：</strong> <code>~/agent-study/repo-qa-agent/</code>。今日任务卡：<code>~/agent-study/handbook/days/day10.md</code>。</p>
+<h2>1. 今天具体看哪个文件、读到哪里</h2>
+<table>
+<thead>
+<tr>
+  <th>顺序</th>
+  <th>完整路径与准确范围</th>
+  <th>只抓住什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>~/agent-study/materials/hello-agents/docs/chapter12/第十二章 智能体性能评估.md</code>&lt;br&gt;<strong>L11–L52</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter12/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20%E6%99%BA%E8%83%BD%E4%BD%93%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0.md#L11-L52">打开固定版本相同行范围</a></td>
+  <td>为何需要评估及输出不确定性</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>~/agent-study/materials/hello-agents/docs/chapter12/第十二章 智能体性能评估.md</code>&lt;br&gt;<strong>L81–L109</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter12/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20%E6%99%BA%E8%83%BD%E4%BD%93%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0.md#L81-L109">打开固定版本相同行范围</a></td>
+  <td>指标及评估体系设计</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>~/agent-study/materials/notes/10_evaluation.md</code>&lt;br&gt;<strong>L1–L31</strong>&lt;br&gt;本包已提供；本次补课讲义，不是教材原文。</td>
+  <td>评测补课：题目、原始输出与人工分数（本次补课讲义）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>学到这里停：</strong> 能说出今天目标函数接什么输入、返回什么、至少一个错误分支；接着按下表写代码。源码中的图像不需要下载，未指定内容本日不读。</p>
+<h2>2. 先准备文件，再动手</h2>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python &quot;$HOME/agent-study/tools/start_day.py&quot; 10
+python &quot;$HOME/agent-study/tools/read_today.py&quot; 10
+</code></pre>
+<p>自动生成的阅读页：<code>~/agent-study/handbook/readings/day10.html</code>；对应带行号文本：<code>~/agent-study/handbook/readings/day10.txt</code>。</p>
+<h2>3. 今天所有文件的完整路径</h2>
+<table>
+<thead>
+<tr>
+  <th>动作</th>
+  <th>完整路径</th>
+  <th>你在这里做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/data/dev.jsonl</code></td>
+  <td>20道开发题，12单片段/4跨片段/4无答案</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/data/holdout.jsonl</code></td>
+  <td>10道留出题，6/2/2；先人工核证，D22再跑模型</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/scripts/check_dataset.py</code></td>
+  <td>检查字段、数量、ID、原文证据范围</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/tests/test_d10_dataset.py</code></td>
+  <td>题集结构与逻辑约束测试</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d10/dataset_audit.md</code></td>
+  <td>5题人工抽检、划分规则和冻结摘要</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithms/d10_binary_search.py</code></td>
+  <td>算法独立实现；闭卷日新文件不覆盖旧答案</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithm_tests/test_d10_binary_search.py</code></td>
+  <td>已给最小样例，你另补2个有效边界</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/notes/d10.md</code></td>
+  <td>今日复盘、算法用时、错误与下一步</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/d10_action.md</code></td>
+  <td>今日求职动作与真实证据</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/data/source_manifest.json</code></td>
+  <td>只核证，不随意扩语料</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/career/applications.md</code></td>
+  <td>仅记录真实岗位资格、申请和反馈</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d10/dataset_check.json</code></td>
+  <td>数量、字段、摘要检查输出</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d10/unittest.txt</code></td>
+  <td>check_day.py自动保存主项目测试输出</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d10/algorithm.txt</code></td>
+  <td>check_day.py自动保存算法测试输出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>“新建一次”已由准备工具完成时，你只需要打开并填内容；不要删掉重建。报告初始状态NOT_DONE不是成绩。程序生成项没有实际运行结果前不要填写成功。</strong></p>
+<h2>4. 要写的接口、具体操作和停止标准</h2>
+<pre><code class="language-text">validate_dataset(rows: list[dict], split: str) -&gt; list[str]
+此函数放在 scripts/check_dataset.py；返回空列表表示没有结构错误，不表示答案事实已人工核对。
+</code></pre>
+<p><strong>前置：</strong> D9来源可定位。</p>
+<p><strong>步骤：</strong> 新建<code>~/agent-study/repo-qa-agent/data/dev.jsonl</code>20题与<code>~/agent-study/repo-qa-agent/data/holdout.jsonl</code>10题。开发题配比12单片段、4跨片段、4无答案；留出6/2/2。每题包含<code>qid/question/type/expected_points/gold_evidence/should_abstain</code>。gold_evidence是源路径、版本、行区间，不是只写某个chunk_id，避免以后改分块让标准答案失效。</p>
+<p>先手工核对5题，再补齐。真实题干可从以下开始：ReAct代码何处限制最大步数？一次run开始时怎样处理历史？工具名不存在时的分支在哪？消息类与工具注册分别解决什么问题？不要预设系统已支持教材没有写出的能力。无答案题可以问“这份限定语料有没有给出本项目的生产QPS实测数值”，标准行为是说明当前材料不足，不是断言世界上没有。</p>
+<p><strong>验收：</strong> 新建<code>~/agent-study/repo-qa-agent/tests/test_d10_dataset.py</code>验证30个ID唯一、配比正确、可回答题有证据、无答案题不伪造证据。人工抽5题逐一核事实；至少1跨片段题有两处不同证据。保存数据集摘要；从今天起不根据留出题上的模型输出改系统，D22才统一跑留出。</p>
+<p><strong>通过线：</strong> 不是“写了30句问题”，而是30题各有评分规则；任何一题你自己无法根据原文判分，就先改题。自己出的留出集不是外部独立评测，也不代表真实用户分布。</p>
+<p><strong>口述：</strong> 开发集用于选择方案；留出用于冻结后检查。只换同义说法的题不得拆到两边。不要让AI直接批量编标准答案而不核原文。</p>
+<p><strong>求职：</strong> 把简历技能分成“实现过/实验过/只读过”三栏，本日不增加投递数量指标。</p>
+<h3>本版锁定的固定输入 / 预期</h3>
+<p>30个ID唯一、配比正确；可答题有人工证据；无答案题证据列表为空。禁止写占位行号充当核证。</p>
+<h2>5. 写完以后，运行哪些命令</h2>
+<p><strong>下面业务入口需要先完成本日骨架，首次NotImplementedError不是环境故障。</strong></p>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python -m scripts.check_dataset --dev &quot;$HOME/agent-study/repo-qa-agent/data/dev.jsonl&quot; --holdout &quot;$HOME/agent-study/repo-qa-agent/data/holdout.jsonl&quot; --out &quot;$HOME/agent-study/repo-qa-agent/reports/d10/dataset_check.json&quot;
+python &quot;$HOME/agent-study/tools/check_day.py&quot; 10
+</code></pre>
+<p>固定测试+已创建的过去测试输出：<code>~/agent-study/repo-qa-agent/reports/d10/unittest.txt</code>。当前算法测试输出：<code>~/agent-study/repo-qa-agent/reports/d10/algorithm.txt</code>。有意未做的集成验收不在此命令中冒充通过。</p>
+<h2>6. 算法也固定文件，不临时找题</h2>
+<p>本日题目：<strong>二分查找</strong>。网页题目范围：<a href="https://leetcode.cn/problems/binary-search/description/">只看这道题的题面、输入输出和约束</a>；闭卷日不打开题解。</p>
+<p>代码：<code>~/agent-study/repo-qa-agent/algorithms/d10_binary_search.py</code>。测试：<code>~/agent-study/repo-qa-agent/algorithm_tests/test_d10_binary_search.py</code>。记录：<code>~/agent-study/repo-qa-agent/notes/d10.md</code>。</p>
+<p>本地统一接口：<code>solve(nums: list[int], target: int) -&gt; int</code>。最小输入：<code>[-1,0,3,5,9,12], 9</code>；预期：<code>4</code>。</p>
+<p>运行：从 <code>~/agent-study/repo-qa-agent/</code> 执行 <code>python -m unittest algorithm_tests.test_d10_binary_search -v</code>。再补2个不同边界；树/链表必须补至少一个非空正常输入，不能只有空输入测试。45分钟后记录真正卡点，不另外开新题。</p>
+<h2>7. 收工前确认</h2>
+<p>把“是否独立、失败原因、测试输出完整路径、仍未测项、下一次第一步”写入 <code>~/agent-study/repo-qa-agent/notes/d10.md</code>。把本日岗位/简历动作写入 <code>~/agent-study/repo-qa-agent/career/d10_action.md</code>；只有真实申请才更新 <code>~/agent-study/repo-qa-agent/career/applications.md</code>。</p>
+<p><strong>绿灯：</strong> 固定测试与自加边界符合预期，关键逻辑能解释并修改，业务产物真实生成；需要真实模型的学习日另有真实证据。<strong>黄/红灯：</strong> 在当前日卡定位未过函数，不翻页堆欠账。</p>
+<p>路径不对先重新运行 <code>python &quot;$HOME/agent-study/tools/start_day.py&quot; 10</code> 看打印出的实际地址；它不会覆盖现有文件。模块找不到先确认终端根目录与解释器，不要盲目重装所有依赖。</p>
+</main></body></html>

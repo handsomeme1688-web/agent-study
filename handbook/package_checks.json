@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-19",
+  "checks": [
+    {
+      "check": "Python语法",
+      "passed": true,
+      "detail": "146 files; errors=[]"
+    },
+    {
+      "check": "原有固定测试数",
+      "passed": true,
+      "detail": "38"
+    },
+    {
+      "check": "D1准备",
+      "passed": true,
+      "detail": "D01: 文件读写\n项目根目录：/mnt/data/path_plan_work/qa/agent-study/repo-qa-agent\nCREATE /mnt/data/path_plan_work/qa/agent-study/repo-qa-agent/scripts/d01_io_demo.py\nCREATE /mnt/data/path_plan_work/qa/agent-study"
+    },
+    {
+      "check": "重复准备不覆盖",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "30天顺序建文件与前置依赖",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "30天阅读页生成",
+      "passed": true,
+      "detail": "30/30; []"
+    },
+    {
+      "check": "缺教材不冒充原文",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "未完成作业如实失败并留日志",
+      "passed": true,
+      "detail": "^^\nAssertionError: TODO_STUDENT_TEST: 请按日卡写真实断言，不要删除此项后冒充测试完成\n\n----------------------------------------------------------------------\nRan 7 tests in 0.003s\n\nFAILED (failures=1, errors=6)\n\nEXIT_CODE=1\n"
+    },
+    {
+      "check": "D1固定用例与临时校验实现一致",
+      "passed": true,
+      "detail": "erwrite_not_append) ... ok\ntest_utf8 (tests.test_d01_io.TestD01.test_utf8) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "check": "D1演示入口与输出路径",
+      "passed": true,
+      "detail": "source_chars=65\nrecords=2\nroundtrip=True\noutput=/mnt/data/path_plan_work/qa/agent-study/repo-qa-agent/workspace/d01/records.jsonl\n\n"
+    },
+    {
+      "check": "D28独立目录排除旧环境与密钥",
+      "passed": true,
+      "detail": "复制完成：/mnt/data/path_plan_work/qa/agent-study/reproduce/repo-qa-agent\n清单：/mnt/data/path_plan_work/qa/agent-study/reproduce/copy_manifest.json\n没有复制密钥、虚拟环境、workspace和历史报告。\n"
+    },
+    {
+      "check": "D28拒绝覆盖已有复现目录",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "全部新增路径有实际模板",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "完整30天而非前几天样例",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "30天全部骨架语法",
+      "passed": true,
+      "detail": "[]"
+    }
+  ],
+  "source_revision": "b4aca1af44b7a492b4bfdec5aa100d556c65db54",
+  "live_integrations_tested": false
+}

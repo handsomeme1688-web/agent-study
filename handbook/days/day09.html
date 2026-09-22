@@ -1,0 +1,151 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D09｜真实语料导入</title><style>body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;line-height:1.8;color:#213047;background:#f5f7fa;margin:0}main{max-width:1140px;margin:0 auto;background:white;padding:42px 48px 80px}h1{font-size:30px;line-height:1.4;color:#102a43}h2{font-size:24px;margin-top:56px;padding-top:15px;border-top:2px solid #d9e2ec;scroll-margin-top:24px}h3{font-size:19px;margin-top:30px;color:#234e70}p,li{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{border:1px solid #d9e2ec;text-align:left;vertical-align:top;padding:10px 12px;overflow-wrap:anywhere}th{background:#eaf0f6}tr:nth-child(even){background:#f8fafc}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px 20px;background:#102a43;color:#eff6ff;border-radius:7px;line-height:1.65}pre code{background:transparent}blockquote{border-left:4px solid #2f6e96;margin:20px 0;padding:12px 18px;background:#eef6fa}a{color:#0b69a3;text-decoration:none}a:hover{text-decoration:underline}.bar{font-size:13px;padding:10px 22px;background:#102a43;color:white;display:flex;justify-content:space-between}.bar a{color:white}details{border:1px solid #d9e2ec;padding:12px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}@media(max-width:720px){main{padding:20px 16px}h1{font-size:25px}table{display:block;overflow:auto}pre{padding:12px}}@media print{body{background:white}main{max-width:none;padding:0}.bar{display:none}h2{page-break-before:always}pre{background:#f4f4f4;color:black}a{color:black}}</style></head><body><div class="bar"><a href="../index.html">30天总目录</a><span>D09 / 30 · 路径与行号版</span></div><main><h1>D09｜真实语料导入</h1>
+<p><strong>唯一项目根目录：</strong> <code>~/agent-study/repo-qa-agent/</code>。今日任务卡：<code>~/agent-study/handbook/days/day09.md</code>。</p>
+<h2>1. 今天具体看哪个文件、读到哪里</h2>
+<table>
+<thead>
+<tr>
+  <th>顺序</th>
+  <th>完整路径与准确范围</th>
+  <th>只抓住什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>~/agent-study/materials/hello-agents/docs/chapter8/第八章 记忆与检索.md</code>&lt;br&gt;<strong>L1085–L1100</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter8/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E8%AE%B0%E5%BF%86%E4%B8%8E%E6%A3%80%E7%B4%A2.md#L1085-L1100">打开固定版本相同行范围</a></td>
+  <td>资料准备与检索生成流程</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>~/agent-study/materials/hello-agents/docs/chapter8/第八章 记忆与检索.md</code>&lt;br&gt;<strong>L1275–L1320</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter8/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E8%AE%B0%E5%BF%86%E4%B8%8E%E6%A3%80%E7%B4%A2.md#L1275-L1320">打开固定版本相同行范围</a></td>
+  <td>结构感知分块说明与部分实现</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>~/agent-study/materials/notes/09_ingest.md</code>&lt;br&gt;<strong>L1–L25</strong>&lt;br&gt;本包已提供；本次补课讲义，不是教材原文。</td>
+  <td>D09 补课：固定版本、稳定ID和原文还原（本次补课讲义）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>学到这里停：</strong> 能说出今天目标函数接什么输入、返回什么、至少一个错误分支；接着按下表写代码。源码中的图像不需要下载，未指定内容本日不读。</p>
+<h2>2. 先准备文件，再动手</h2>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python &quot;$HOME/agent-study/tools/start_day.py&quot; 9
+python &quot;$HOME/agent-study/tools/read_today.py&quot; 9
+</code></pre>
+<p>自动生成的阅读页：<code>~/agent-study/handbook/readings/day09.html</code>；对应带行号文本：<code>~/agent-study/handbook/readings/day09.txt</code>。</p>
+<h2>3. 今天所有文件的完整路径</h2>
+<table>
+<thead>
+<tr>
+  <th>动作</th>
+  <th>完整路径</th>
+  <th>你在这里做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/agent_lab/ingest.py</code></td>
+  <td>读取固定源区间，围栏处理，稳定ID和来源行号</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/scripts/ingest.py</code></td>
+  <td>根据source_manifest导入公开资料</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/data/source_manifest.json</code></td>
+  <td>4个固定源文件、提交、选定行范围</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/tests/test_d09_ingest.py</code></td>
+  <td>重导入、围栏与行号还原测试</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithms/d09_longest_substring_rewrite.py</code></td>
+  <td>算法独立实现；闭卷日新文件不覆盖旧答案</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithm_tests/test_d09_longest_substring_rewrite.py</code></td>
+  <td>已给最小样例，你另补2个有效边界</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/notes/d09.md</code></td>
+  <td>今日复盘、算法用时、错误与下一步</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/d09_action.md</code></td>
+  <td>今日求职动作与真实证据</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/agent_lab/chunking.py</code></td>
+  <td>保留D2函数契约；新增真实Markdown处理函数，不破坏旧样例</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/career/applications.md</code></td>
+  <td>仅记录真实岗位资格、申请和反馈</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/data/chunks.jsonl</code></td>
+  <td>正式限定语料片段</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d09/ingest.json</code></td>
+  <td>文件摘要、片段数与5条人工位置核验</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d09/unittest.txt</code></td>
+  <td>check_day.py自动保存主项目测试输出</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d09/algorithm.txt</code></td>
+  <td>check_day.py自动保存算法测试输出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>“新建一次”已由准备工具完成时，你只需要打开并填内容；不要删掉重建。报告初始状态NOT_DONE不是成绩。程序生成项没有实际运行结果前不要填写成功。</strong></p>
+<h2>4. 要写的接口、具体操作和停止标准</h2>
+<pre><code class="language-text">ingest_manifest(manifest_path: str, output_path: str) -&gt; list[dict]
+每块含 id/source/revision/start_line/end_line/text；source是登记的仓库内逻辑路径，不是任意可读路径。
+</code></pre>
+<p><strong>前置：</strong> D2/3绿灯。</p>
+<p><strong>步骤：</strong> 从本任务书固定提交链接保存4个文本源：<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter4/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%BB%8F%E5%85%B8%E8%8C%83%E5%BC%8F%E6%9E%84%E5%BB%BA.md">第4章</a>、<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter7/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%9E%84%E5%BB%BA%E4%BD%A0%E7%9A%84Agent%E6%A1%86%E6%9E%B6.md">第7章</a>、<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter8/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E8%AE%B0%E5%BF%86%E4%B8%8E%E6%A3%80%E7%B4%A2.md">第8章</a>和<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/code/chapter4/ReAct.py">ReAct.py</a>。只选第4章ReAct原理、第7章消息/工具注册、第8章RAG基本流程及ReAct代码，目标20–40个片段。不要索引完整仓库。新建<code>~/agent-study/repo-qa-agent/data/source_manifest.json</code>记录仓库提交、路径、选择的原文行范围及本地原始文件摘要。</p>
+<p>扩展D2：Markdown围栏中的<code>#</code>不作标题；长段落按完整行继续切分，保存真实原文行号。Python文件按连续约20行窗口切，不把注释当Markdown标题。先无重叠，超长单行不偷偷截断；记录该片段为需处理。ID加入源提交/路径/行范围；同一版本重复导入ID不变，版本改变先整体重建该小语料索引，避免遗留旧块。</p>
+<p><strong>验收：</strong> 新建<code>~/agent-study/repo-qa-agent/tests/test_d09_ingest.py</code>，测试重复导入不翻倍、代码围栏标题不误切、源行可准确还原。命令<strong>见本日运行区的完整命令</strong>。随机抽5块，在固定版本原文中找到完全相同的文字及行号；5/5定位一致即通过。交manifest与chunks.jsonl。</p>
+<p><strong>口述：</strong> 为什么来源版本必须保存？原文更新会使旧行号/证据失效。为什么只导少量语料？为了能人工核证，不是宣称覆盖全库。</p>
+<p><strong>卡住：</strong> 先只取ReAct.py的两段代码跑通行号映射，再加Markdown；把支持格式写入README，不做“万能文件解析器”。</p>
+<p><strong>求职：</strong> 记录1个新岗位的硬条件；原计划中的旧岗位链接只作查找入口，当前状态需你重新确认。</p>
+<h3>本版锁定的固定输入 / 预期</h3>
+<p>重导入字节或记录内容稳定、无重复ID；抽5块行号与原文5/5一致。Python按连续窗口切，不按#标题切。</p>
+<h3>本版已经替你固定的语料清单</h3>
+<p><code>~/agent-study/repo-qa-agent/data/source_manifest.json</code> 已提供4个源文件和准确行范围、<code>chunk_max_lines=15</code>。今天只实现读取、切分和核对，暂不自行扩展语料；源路径中的<code>~</code>必须用<code>Path(...).expanduser()</code>展开。15行是本轮默认上限，不是教材的通用最佳参数。</p>
+<h2>5. 写完以后，运行哪些命令</h2>
+<p><strong>下面业务入口需要先完成本日骨架，首次NotImplementedError不是环境故障。</strong></p>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python -m scripts.ingest --manifest &quot;$HOME/agent-study/repo-qa-agent/data/source_manifest.json&quot; --out &quot;$HOME/agent-study/repo-qa-agent/data/chunks.jsonl&quot; --report &quot;$HOME/agent-study/repo-qa-agent/reports/d09/ingest.json&quot;
+python &quot;$HOME/agent-study/tools/check_day.py&quot; 9
+</code></pre>
+<p>固定测试+已创建的过去测试输出：<code>~/agent-study/repo-qa-agent/reports/d09/unittest.txt</code>。当前算法测试输出：<code>~/agent-study/repo-qa-agent/reports/d09/algorithm.txt</code>。有意未做的集成验收不在此命令中冒充通过。</p>
+<h2>6. 算法也固定文件，不临时找题</h2>
+<p>本日题目：<strong>最长子串闭卷</strong>。网页题目范围：<a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/">只看这道题的题面、输入输出和约束</a>；闭卷日不打开题解。</p>
+<p>代码：<code>~/agent-study/repo-qa-agent/algorithms/d09_longest_substring_rewrite.py</code>。测试：<code>~/agent-study/repo-qa-agent/algorithm_tests/test_d09_longest_substring_rewrite.py</code>。记录：<code>~/agent-study/repo-qa-agent/notes/d09.md</code>。</p>
+<p>本地统一接口：<code>solve(s: str) -&gt; int</code>。最小输入：<code>&quot;&quot;</code>；预期：<code>0</code>。</p>
+<p>运行：从 <code>~/agent-study/repo-qa-agent/</code> 执行 <code>python -m unittest algorithm_tests.test_d09_longest_substring_rewrite -v</code>。再补2个不同边界；树/链表必须补至少一个非空正常输入，不能只有空输入测试。45分钟后记录真正卡点，不另外开新题。</p>
+<h2>7. 收工前确认</h2>
+<p>把“是否独立、失败原因、测试输出完整路径、仍未测项、下一次第一步”写入 <code>~/agent-study/repo-qa-agent/notes/d09.md</code>。把本日岗位/简历动作写入 <code>~/agent-study/repo-qa-agent/career/d09_action.md</code>；只有真实申请才更新 <code>~/agent-study/repo-qa-agent/career/applications.md</code>。</p>
+<p><strong>绿灯：</strong> 固定测试与自加边界符合预期，关键逻辑能解释并修改，业务产物真实生成；需要真实模型的学习日另有真实证据。<strong>黄/红灯：</strong> 在当前日卡定位未过函数，不翻页堆欠账。</p>
+<p>路径不对先重新运行 <code>python &quot;$HOME/agent-study/tools/start_day.py&quot; 9</code> 看打印出的实际地址；它不会覆盖现有文件。模块找不到先确认终端根目录与解释器，不要盲目重装所有依赖。</p>
+</main></body></html>

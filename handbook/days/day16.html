@@ -1,0 +1,144 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D16｜上下文与追问</title><style>body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;line-height:1.8;color:#213047;background:#f5f7fa;margin:0}main{max-width:1140px;margin:0 auto;background:white;padding:42px 48px 80px}h1{font-size:30px;line-height:1.4;color:#102a43}h2{font-size:24px;margin-top:56px;padding-top:15px;border-top:2px solid #d9e2ec;scroll-margin-top:24px}h3{font-size:19px;margin-top:30px;color:#234e70}p,li{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{border:1px solid #d9e2ec;text-align:left;vertical-align:top;padding:10px 12px;overflow-wrap:anywhere}th{background:#eaf0f6}tr:nth-child(even){background:#f8fafc}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px 20px;background:#102a43;color:#eff6ff;border-radius:7px;line-height:1.65}pre code{background:transparent}blockquote{border-left:4px solid #2f6e96;margin:20px 0;padding:12px 18px;background:#eef6fa}a{color:#0b69a3;text-decoration:none}a:hover{text-decoration:underline}.bar{font-size:13px;padding:10px 22px;background:#102a43;color:white;display:flex;justify-content:space-between}.bar a{color:white}details{border:1px solid #d9e2ec;padding:12px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}@media(max-width:720px){main{padding:20px 16px}h1{font-size:25px}table{display:block;overflow:auto}pre{padding:12px}}@media print{body{background:white}main{max-width:none;padding:0}.bar{display:none}h2{page-break-before:always}pre{background:#f4f4f4;color:black}a{color:black}}</style></head><body><div class="bar"><a href="../index.html">30天总目录</a><span>D16 / 30 · 路径与行号版</span></div><main><h1>D16｜上下文与追问</h1>
+<p><strong>唯一项目根目录：</strong> <code>~/agent-study/repo-qa-agent/</code>。今日任务卡：<code>~/agent-study/handbook/days/day16.md</code>。</p>
+<h2>1. 今天具体看哪个文件、读到哪里</h2>
+<table>
+<thead>
+<tr>
+  <th>顺序</th>
+  <th>完整路径与准确范围</th>
+  <th>只抓住什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>~/agent-study/materials/hello-agents/docs/chapter9/第九章 上下文工程.md</code>&lt;br&gt;<strong>L23–L44</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter9/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B.md#L23-L44">打开固定版本相同行范围</a></td>
+  <td>9.1：上下文工程定义与组成</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>~/agent-study/materials/hello-agents/docs/chapter9/第九章 上下文工程.md</code>&lt;br&gt;<strong>L64–L80</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter9/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B.md#L64-L80">打开固定版本相同行范围</a></td>
+  <td>提示、工具与示例的组织</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>~/agent-study/materials/notes/16_context.md</code>&lt;br&gt;<strong>L1–L22</strong>&lt;br&gt;本包已提供；本次补课讲义，不是教材原文。</td>
+  <td>D16 补课：先做有限历史（本次补课讲义）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>学到这里停：</strong> 能说出今天目标函数接什么输入、返回什么、至少一个错误分支；接着按下表写代码。源码中的图像不需要下载，未指定内容本日不读。</p>
+<h2>2. 先准备文件，再动手</h2>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python &quot;$HOME/agent-study/tools/start_day.py&quot; 16
+python &quot;$HOME/agent-study/tools/read_today.py&quot; 16
+</code></pre>
+<p>自动生成的阅读页：<code>~/agent-study/handbook/readings/day16.html</code>；对应带行号文本：<code>~/agent-study/handbook/readings/day16.txt</code>。</p>
+<h2>3. 今天所有文件的完整路径</h2>
+<table>
+<thead>
+<tr>
+  <th>动作</th>
+  <th>完整路径</th>
+  <th>你在这里做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/agent_lab/context.py</code></td>
+  <td>保存当前问题和system，裁剪旧历史与低优先证据</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/scripts/followup_demo.py</code></td>
+  <td>同一内存会话中的两轮问题</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/tests/test_d16_context.py</code></td>
+  <td>裁剪、超长、独立会话边界</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithms/d16_islands.py</code></td>
+  <td>算法独立实现；闭卷日新文件不覆盖旧答案</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithm_tests/test_d16_islands.py</code></td>
+  <td>已给最小样例，你另补2个有效边界</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/notes/d16.md</code></td>
+  <td>今日复盘、算法用时、错误与下一步</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/d16_action.md</code></td>
+  <td>今日求职动作与真实证据</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/agent_lab/service.py</code></td>
+  <td>把history传给上下文构建而非全局共享</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/agent_lab/qa_agent.py</code></td>
+  <td>追问使用新证据，不只复述旧答案</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/career/applications.md</code></td>
+  <td>仅记录真实岗位资格、申请和反馈</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d16/followup.json</code></td>
+  <td>两轮真实问答与裁剪记录</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d16/unittest.txt</code></td>
+  <td>check_day.py自动保存主项目测试输出</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d16/algorithm.txt</code></td>
+  <td>check_day.py自动保存算法测试输出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>“新建一次”已由准备工具完成时，你只需要打开并填内容；不要删掉重建。报告初始状态NOT_DONE不是成绩。程序生成项没有实际运行结果前不要填写成功。</strong></p>
+<h2>4. 要写的接口、具体操作和停止标准</h2>
+<pre><code class="language-text">build_context(system: str, question: str, history: list[dict], evidence: list[dict], max_chars: int = 6000) -&gt; list[dict]
+</code></pre>
+<p><strong>前置：</strong> D15过关。</p>
+<p><strong>步骤：</strong> 新建<code>~/agent-study/repo-qa-agent/agent_lab/context.py</code>。把system规则、当前问题、近期对话、证据分别组织，不混成一个无限增长字符串。先采用可审计的字符上限作为工程保护：当前问题最多500字符、最多5条证据（默认检索取3条，给D17的k对照留空间）、历史最多2轮；保证保留system/当前问题，优先移除最旧历史，然后移除低优先证据。若连必保内容也放不下，明确拒绝过长输入，不截断工具调用JSON。</p>
+<p>默认实验上限如6000字符只是本课程配置，<strong>不是6000 token，也不是保证不超模型窗口</strong>。使用提供商token计数或对应tokenizer可用时，另外记录实际输入长度并留输出余量；不可用时写“仅字符级保护”。</p>
+<p>支持内存中一轮追问：“注册工具的接口是什么？”→“它的参数呢？”历史不足或指代不明应询问/说明不能确定，不凭猜测拼结论。</p>
+<p><strong>验收：</strong> 新建<code>~/agent-study/repo-qa-agent/tests/test_d16_context.py</code>，测保留system/当前问题、移除最旧历史、两次独立会话不串历史、超长输入受控拒绝。真实模型跑一组两轮问答，第二轮仍有新检索证据；保存裁剪前后条目和字符计数。</p>
+<p><strong>口述：</strong> 历史记录与检索知识不是同一种数据；更多上下文不自动带来更好回答；精确token计数不能由字符数冒充。</p>
+<p><strong>卡住：</strong> 先只实现“保留最近2轮”，再做证据裁剪。追问不稳定时把允许的范围写明，不加长期记忆框架补洞。</p>
+<p><strong>求职：</strong> 按实际项目状态定向投递1个匹配岗位或改一处简历；未找到匹配岗位则记录硬条件原因。</p>
+<h3>本版锁定的固定输入 / 预期</h3>
+<p>system和当前问题保留；最旧历史先删；必保内容也超限时拒绝。字符保护不冒充精确token预算。</p>
+<h2>5. 写完以后，运行哪些命令</h2>
+<p><strong>下面业务入口需要先完成本日骨架，首次NotImplementedError不是环境故障。</strong></p>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python -m scripts.followup_demo --out &quot;$HOME/agent-study/repo-qa-agent/reports/d16/followup.json&quot;
+python &quot;$HOME/agent-study/tools/check_day.py&quot; 16
+</code></pre>
+<p>固定测试+已创建的过去测试输出：<code>~/agent-study/repo-qa-agent/reports/d16/unittest.txt</code>。当前算法测试输出：<code>~/agent-study/repo-qa-agent/reports/d16/algorithm.txt</code>。有意未做的集成验收不在此命令中冒充通过。</p>
+<h2>6. 算法也固定文件，不临时找题</h2>
+<p>本日题目：<strong>岛屿数量</strong>。网页题目范围：<a href="https://leetcode.cn/problems/number-of-islands/description/">只看这道题的题面、输入输出和约束</a>；闭卷日不打开题解。</p>
+<p>代码：<code>~/agent-study/repo-qa-agent/algorithms/d16_islands.py</code>。测试：<code>~/agent-study/repo-qa-agent/algorithm_tests/test_d16_islands.py</code>。记录：<code>~/agent-study/repo-qa-agent/notes/d16.md</code>。</p>
+<p>本地统一接口：<code>solve(grid: list[list[str]]) -&gt; int</code>。最小输入：<code>[[&quot;1&quot;,&quot;0&quot;],[&quot;0&quot;,&quot;1&quot;]]</code>；预期：<code>2</code>。</p>
+<p>运行：从 <code>~/agent-study/repo-qa-agent/</code> 执行 <code>python -m unittest algorithm_tests.test_d16_islands -v</code>。再补2个不同边界；树/链表必须补至少一个非空正常输入，不能只有空输入测试。45分钟后记录真正卡点，不另外开新题。</p>
+<h2>7. 收工前确认</h2>
+<p>把“是否独立、失败原因、测试输出完整路径、仍未测项、下一次第一步”写入 <code>~/agent-study/repo-qa-agent/notes/d16.md</code>。把本日岗位/简历动作写入 <code>~/agent-study/repo-qa-agent/career/d16_action.md</code>；只有真实申请才更新 <code>~/agent-study/repo-qa-agent/career/applications.md</code>。</p>
+<p><strong>绿灯：</strong> 固定测试与自加边界符合预期，关键逻辑能解释并修改，业务产物真实生成；需要真实模型的学习日另有真实证据。<strong>黄/红灯：</strong> 在当前日卡定位未过函数，不翻页堆欠账。</p>
+<p>路径不对先重新运行 <code>python &quot;$HOME/agent-study/tools/start_day.py&quot; 16</code> 看打印出的实际地址；它不会覆盖现有文件。模块找不到先确认终端根目录与解释器，不要盲目重装所有依赖。</p>
+</main></body></html>

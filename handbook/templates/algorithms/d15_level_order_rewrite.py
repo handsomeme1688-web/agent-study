@@ -1,0 +1,13 @@
+"""D15：层序遍历闭卷。函数名在本地统一为solve。"""
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val=val
+        self.left=left
+        self.right=right
+
+
+def solve(root) -> list[list[int]]:
+    """自己实现，不复制前一天答案；再补两个边界测试。"""
+    raise NotImplementedError("请按当天任务卡完成 solve")
+

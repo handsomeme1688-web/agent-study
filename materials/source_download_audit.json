@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/home/handsomeme/agent-study/materials/hello-agents/docs/chapter4/第四章 智能体经典范式构建.md",
+    "source_url": "https://raw.githubusercontent.com/datawhalechina/hello-agents/b4aca1af44b7a492b4bfdec5aa100d556c65db54/docs/chapter4/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%BB%8F%E5%85%B8%E8%8C%83%E5%BC%8F%E6%9E%84%E5%BB%BA.md",
+    "revision": "b4aca1af44b7a492b4bfdec5aa100d556c65db54",
+    "git_blob_sha1": "ca101cafb34055d08d56a7884cf3e460bd5ec046",
+    "sha256": "3f02e84fcf75c76caef3eaca5b91765251d1d8afbbf0f6dc750abcd25eff1ef1",
+    "lines": 1311,
+    "status": "verified"
+  },
+  {
+    "path": "/home/handsomeme/agent-study/materials/hello-agents/code/chapter4/ReAct.py",
+    "source_url": "https://raw.githubusercontent.com/datawhalechina/hello-agents/b4aca1af44b7a492b4bfdec5aa100d556c65db54/code/chapter4/ReAct.py",
+    "revision": "b4aca1af44b7a492b4bfdec5aa100d556c65db54",
+    "git_blob_sha1": "04ae533df7d71f14a685eb0349e024291fda7c90",
+    "sha256": "bf792fddcd8f9f8d1dccc15b147fe1ceb61cd590721adb82c8ff591c7692ea74",
+    "lines": 99,
+    "status": "verified"
+  }
+]

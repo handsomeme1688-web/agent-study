@@ -1,0 +1,7 @@
+{
+  "max_steps": 4,
+  "max_model_requests": 5,
+  "max_tools": 3,
+  "max_retry_per_call": 1,
+  "timeout_seconds": 30
+}

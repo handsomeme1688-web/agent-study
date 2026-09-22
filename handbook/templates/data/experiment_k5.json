@@ -1,0 +1,7 @@
+{
+  "k": 5,
+  "mode": "vector",
+  "model": "使用同一实际模型ID",
+  "prompt_sha256": "待填写真实摘要",
+  "corpus_sha256": "待填写真实摘要"
+}

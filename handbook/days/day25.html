@@ -1,0 +1,146 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D25｜选做：LangGraph对照</title><style>body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;line-height:1.8;color:#213047;background:#f5f7fa;margin:0}main{max-width:1140px;margin:0 auto;background:white;padding:42px 48px 80px}h1{font-size:30px;line-height:1.4;color:#102a43}h2{font-size:24px;margin-top:56px;padding-top:15px;border-top:2px solid #d9e2ec;scroll-margin-top:24px}h3{font-size:19px;margin-top:30px;color:#234e70}p,li{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{border:1px solid #d9e2ec;text-align:left;vertical-align:top;padding:10px 12px;overflow-wrap:anywhere}th{background:#eaf0f6}tr:nth-child(even){background:#f8fafc}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px 20px;background:#102a43;color:#eff6ff;border-radius:7px;line-height:1.65}pre code{background:transparent}blockquote{border-left:4px solid #2f6e96;margin:20px 0;padding:12px 18px;background:#eef6fa}a{color:#0b69a3;text-decoration:none}a:hover{text-decoration:underline}.bar{font-size:13px;padding:10px 22px;background:#102a43;color:white;display:flex;justify-content:space-between}.bar a{color:white}details{border:1px solid #d9e2ec;padding:12px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}@media(max-width:720px){main{padding:20px 16px}h1{font-size:25px}table{display:block;overflow:auto}pre{padding:12px}}@media print{body{background:white}main{max-width:none;padding:0}.bar{display:none}h2{page-break-before:always}pre{background:#f4f4f4;color:black}a{color:black}}</style></head><body><div class="bar"><a href="../index.html">30天总目录</a><span>D25 / 30 · 路径与行号版</span></div><main><h1>D25｜选做：LangGraph对照</h1>
+<p><strong>唯一项目根目录：</strong> <code>~/agent-study/repo-qa-agent/</code>。今日任务卡：<code>~/agent-study/handbook/days/day25.md</code>。</p>
+<h2>1. 今天具体看哪个文件、读到哪里</h2>
+<table>
+<thead>
+<tr>
+  <th>顺序</th>
+  <th>完整路径与准确范围</th>
+  <th>只抓住什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>~/agent-study/materials/hello-agents/code/chapter6/Langgraph/Dialogue_System.py</code>&lt;br&gt;<strong>L22–L29</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/code/chapter6/Langgraph/Dialogue_System.py#L22-L29">打开固定版本相同行范围</a></td>
+  <td>SearchState状态字段</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>~/agent-study/materials/hello-agents/code/chapter6/Langgraph/Dialogue_System.py</code>&lt;br&gt;<strong>L175–L194</strong>&lt;br&gt;<a href="https://github.com/datawhalechina/hello-agents/blob/b4aca1af44b7a492b4bfdec5aa100d556c65db54/code/chapter6/Langgraph/Dialogue_System.py#L175-L194">打开固定版本相同行范围</a></td>
+  <td>节点、边、compile</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>~/agent-study/materials/notes/25_graph.md</code>&lt;br&gt;<strong>L1–L23</strong>&lt;br&gt;本包已提供；本次补课讲义，不是教材原文。</td>
+  <td>D25 选修：同一业务的另一种表示（本次补课讲义）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>学到这里停：</strong> 能说出今天目标函数接什么输入、返回什么、至少一个错误分支；接着按下表写代码。源码中的图像不需要下载，未指定内容本日不读。</p>
+<h2>2. 先准备文件，再动手</h2>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python &quot;$HOME/agent-study/tools/start_day.py&quot; 25
+python &quot;$HOME/agent-study/tools/read_today.py&quot; 25
+</code></pre>
+<p>自动生成的阅读页：<code>~/agent-study/handbook/readings/day25.html</code>；对应带行号文本：<code>~/agent-study/handbook/readings/day25.txt</code>。</p>
+<h2>3. 今天所有文件的完整路径</h2>
+<table>
+<thead>
+<tr>
+  <th>动作</th>
+  <th>完整路径</th>
+  <th>你在这里做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/agent_lab/graph_agent.py</code></td>
+  <td>用图表达已有决策—工具—结束</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/tests/test_d25_graph.py</code></td>
+  <td>与手写版共享4类假模型场景</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d25/loop_vs_graph.md</code></td>
+  <td>状态迁移与是否值得迁移的结论</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithms/d25_coin_change_rewrite.py</code></td>
+  <td>算法独立实现；闭卷日新文件不覆盖旧答案</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithm_tests/test_d25_coin_change_rewrite.py</code></td>
+  <td>已给最小样例，你另补2个有效边界</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/notes/d25.md</code></td>
+  <td>今日复盘、算法用时、错误与下一步</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/d25_action.md</code></td>
+  <td>今日求职动作与真实证据</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/requirements.txt</code></td>
+  <td>选做时添加langgraph；跳过则不装</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/README.md</code></td>
+  <td>按是否完成决定是否展示该模块</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/career/applications.md</code></td>
+  <td>仅记录真实岗位资格、申请和反馈</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d25/graph_trace.json</code></td>
+  <td>固定场景状态轨迹</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d25/unittest.txt</code></td>
+  <td>check_day.py自动保存主项目测试输出</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d25/algorithm.txt</code></td>
+  <td>check_day.py自动保存算法测试输出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>“新建一次”已由准备工具完成时，你只需要打开并填内容；不要删掉重建。报告初始状态NOT_DONE不是成绩。程序生成项没有实际运行结果前不要填写成功。</strong></p>
+<h2>4. 要写的接口、具体操作和停止标准</h2>
+<pre><code class="language-text">run_graph_agent(question: str, model, execute, max_steps: int = 4) -&gt; dict
+结果与run_agent核心字段保持兼容。
+</code></pre>
+<p><strong>这是唯一框架迁移选做日。</strong> 主线有红灯就修红灯，不增加框架。</p>
+<p><strong>步骤：</strong> 保留手写循环作为基线。新建<code>~/agent-study/repo-qa-agent/agent_lab/graph_agent.py</code>，状态至少包含messages、steps、answer、status。把“决策→工具→再次决策或结束”映射成节点与条件边；输入输出仍与原服务兼容。步骤上限在你的状态逻辑里显式检查，不仅依赖框架默认递归限制。</p>
+<p>不新增工具、不更换模型/语料、不加长期记忆、checkpoint数据库或多Agent分工。目标是同样业务的另一种表示，不是“用了图就更聪明”。</p>
+<p><strong>验收：</strong> 新建<code>~/agent-study/repo-qa-agent/tests/test_d25_graph.py</code>，让同一组ScriptedModel场景分别通过手写版与图版：一次工具后结束、立即结束、非法输出、达到上限。记录状态迁移，画出节点图；不要求真实生成文本逐字一致。</p>
+<p><strong>交什么：</strong> 图代码、比较测试、<code>~/agent-study/repo-qa-agent/reports/d25/loop_vs_graph.md</code>，回答“当前规模是否值得迁移”。结论是继续用手写版也合格。未完成则从简历技术栈中删除LangGraph。</p>
+<p><strong>口述：</strong> State保存什么？节点读取/返回什么？条件边依据谁的字段？相比while循环增加了什么复杂度？</p>
+<p><strong>卡住：</strong> 先做没有LLM的三节点图，再放入原函数。版本参数不兼容只查你安装版本的文档，不一次升级整个环境。</p>
+<p><strong>求职：</strong> 用目标岗位判断框架经历是否值得展示，不为了关键词把主线换坏。</p>
+<h3>本版锁定的固定输入 / 预期</h3>
+<p>立即final、tool后final、非法格式、达到上限四类两版一致。未做明确跳过，不能计为已学会。</p>
+<h2>5. 写完以后，运行哪些命令</h2>
+<p><strong>下面业务入口需要先完成本日骨架，首次NotImplementedError不是环境故障。</strong></p>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python -m pip install langgraph
+python -m unittest tests.test_d25_graph -v
+python &quot;$HOME/agent-study/tools/check_day.py&quot; 25
+</code></pre>
+<p>固定测试+已创建的过去测试输出：<code>~/agent-study/repo-qa-agent/reports/d25/unittest.txt</code>。当前算法测试输出：<code>~/agent-study/repo-qa-agent/reports/d25/algorithm.txt</code>。有意未做的集成验收不在此命令中冒充通过。</p>
+<h2>6. 算法也固定文件，不临时找题</h2>
+<p>本日题目：<strong>零钱兑换闭卷</strong>。网页题目范围：<a href="https://leetcode.cn/problems/coin-change/description/">只看这道题的题面、输入输出和约束</a>；闭卷日不打开题解。</p>
+<p>代码：<code>~/agent-study/repo-qa-agent/algorithms/d25_coin_change_rewrite.py</code>。测试：<code>~/agent-study/repo-qa-agent/algorithm_tests/test_d25_coin_change_rewrite.py</code>。记录：<code>~/agent-study/repo-qa-agent/notes/d25.md</code>。</p>
+<p>本地统一接口：<code>solve(coins: list[int], amount: int) -&gt; int</code>。最小输入：<code>[2], 3</code>；预期：<code>-1</code>。</p>
+<p>运行：从 <code>~/agent-study/repo-qa-agent/</code> 执行 <code>python -m unittest algorithm_tests.test_d25_coin_change_rewrite -v</code>。再补2个不同边界；树/链表必须补至少一个非空正常输入，不能只有空输入测试。45分钟后记录真正卡点，不另外开新题。</p>
+<h2>7. 收工前确认</h2>
+<p>把“是否独立、失败原因、测试输出完整路径、仍未测项、下一次第一步”写入 <code>~/agent-study/repo-qa-agent/notes/d25.md</code>。把本日岗位/简历动作写入 <code>~/agent-study/repo-qa-agent/career/d25_action.md</code>；只有真实申请才更新 <code>~/agent-study/repo-qa-agent/career/applications.md</code>。</p>
+<p><strong>绿灯：</strong> 固定测试与自加边界符合预期，关键逻辑能解释并修改，业务产物真实生成；需要真实模型的学习日另有真实证据。<strong>黄/红灯：</strong> 在当前日卡定位未过函数，不翻页堆欠账。</p>
+<p>路径不对先重新运行 <code>python &quot;$HOME/agent-study/tools/start_day.py&quot; 25</code> 看打印出的实际地址；它不会覆盖现有文件。模块找不到先确认终端根目录与解释器，不要盲目重装所有依赖。</p>
+</main></body></html>

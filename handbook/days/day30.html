@@ -1,0 +1,144 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D30｜最终验收与下一轮</title><style>body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;line-height:1.8;color:#213047;background:#f5f7fa;margin:0}main{max-width:1140px;margin:0 auto;background:white;padding:42px 48px 80px}h1{font-size:30px;line-height:1.4;color:#102a43}h2{font-size:24px;margin-top:56px;padding-top:15px;border-top:2px solid #d9e2ec;scroll-margin-top:24px}h3{font-size:19px;margin-top:30px;color:#234e70}p,li{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{border:1px solid #d9e2ec;text-align:left;vertical-align:top;padding:10px 12px;overflow-wrap:anywhere}th{background:#eaf0f6}tr:nth-child(even){background:#f8fafc}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px 20px;background:#102a43;color:#eff6ff;border-radius:7px;line-height:1.65}pre code{background:transparent}blockquote{border-left:4px solid #2f6e96;margin:20px 0;padding:12px 18px;background:#eef6fa}a{color:#0b69a3;text-decoration:none}a:hover{text-decoration:underline}.bar{font-size:13px;padding:10px 22px;background:#102a43;color:white;display:flex;justify-content:space-between}.bar a{color:white}details{border:1px solid #d9e2ec;padding:12px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}@media(max-width:720px){main{padding:20px 16px}h1{font-size:25px}table{display:block;overflow:auto}pre{padding:12px}}@media print{body{background:white}main{max-width:none;padding:0}.bar{display:none}h2{page-break-before:always}pre{background:#f4f4f4;color:black}a{color:black}}</style></head><body><div class="bar"><a href="../index.html">30天总目录</a><span>D30 / 30 · 路径与行号版</span></div><main><h1>D30｜最终验收与下一轮</h1>
+<p><strong>唯一项目根目录：</strong> <code>~/agent-study/repo-qa-agent/</code>。今日任务卡：<code>~/agent-study/handbook/days/day30.md</code>。</p>
+<h2>1. 今天具体看哪个文件、读到哪里</h2>
+<table>
+<thead>
+<tr>
+  <th>顺序</th>
+  <th>完整路径与准确范围</th>
+  <th>只抓住什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>~/agent-study/materials/notes/30_final.md</code>&lt;br&gt;<strong>L1–L21</strong>&lt;br&gt;本包已提供；本次补课讲义，不是教材原文。</td>
+  <td>D30 验收：四类证据一致（本次补课讲义）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>学到这里停：</strong> 能说出今天目标函数接什么输入、返回什么、至少一个错误分支；接着按下表写代码。源码中的图像不需要下载，未指定内容本日不读。</p>
+<h2>2. 先准备文件，再动手</h2>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python &quot;$HOME/agent-study/tools/start_day.py&quot; 30
+python &quot;$HOME/agent-study/tools/read_today.py&quot; 30
+</code></pre>
+<p>自动生成的阅读页：<code>~/agent-study/handbook/readings/day30.html</code>；对应带行号文本：<code>~/agent-study/handbook/readings/day30.txt</code>。</p>
+<h2>3. 今天所有文件的完整路径</h2>
+<table>
+<thead>
+<tr>
+  <th>动作</th>
+  <th>完整路径</th>
+  <th>你在这里做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d30/final_check.md</code></td>
+  <td>代码/质量/交付/求职四类证据</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/resume_final.md</code></td>
+  <td>提交用文字稿，保留版本号与日期</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/next_cycle.md</code></td>
+  <td>只选下一轮最大短板</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d30/mock_interview.md</code></td>
+  <td>完整模拟记录，不伪填通过</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithms/d30_subarray_sum_mock.py</code></td>
+  <td>算法独立实现；闭卷日新文件不覆盖旧答案</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithm_tests/test_d30_subarray_sum_mock.py</code></td>
+  <td>已给最小样例，你另补2个有效边界</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/notes/d30.md</code></td>
+  <td>今日复盘、算法用时、错误与下一步</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/d30_action.md</code></td>
+  <td>今日求职动作与真实证据</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/career/applications.md</code></td>
+  <td>填真实申请状态，暂无反馈不等于拒绝</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/README.md</code></td>
+  <td>最终功能与局限一致</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d30/demo_final.mp4</code></td>
+  <td>最终演示文件或明确未录制</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d30/mock_interview.mp4</code></td>
+  <td>完整模拟录像；不宜分享时本机保存</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d30/unittest.txt</code></td>
+  <td>check_day.py自动保存主项目测试输出</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d30/algorithm.txt</code></td>
+  <td>check_day.py自动保存算法测试输出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>“新建一次”已由准备工具完成时，你只需要打开并填内容；不要删掉重建。报告初始状态NOT_DONE不是成绩。程序生成项没有实际运行结果前不要填写成功。</strong></p>
+<h2>4. 要写的接口、具体操作和停止标准</h2>
+<pre><code class="language-text">不新增业务模块；终测仍使用实际现有模块和测试。
+</code></pre>
+<p><strong>今天不追新章节。</strong> 按D28说明再走一遍；检查项目、报告、简历内容一致。做一次完整模拟：5分钟项目介绍、15分钟项目追问、30分钟算法/编码、10分钟复盘。卡住时记录事实，不临时宣称掌握未实践技术。</p>
+<p><strong>毕业门槛分四张票：</strong></p>
+<ul>
+<li>代码票：核心读写、检索、工具调用、上限、API、持久化与会话权限可解释，关键回归通过。</li>
+<li>质量票：20开发题、10留出题有原文依据、原始结果与诚实评分；真实集成和mock分开记录。</li>
+<li>交付票：干净环境复现、README、演示、来源标注和已知局限可访问；缺少Docker/MCP时如实注明。</li>
+<li>求职票：一页真实简历，个人资格与出勤明确，至少对符合条件的岗位启动投递或记录为何当前暂无合适岗位。</li>
+</ul>
+<p>这些票不能用“看完全书”代替，也不保证实习录取。LangGraph不是必需票；未完成的真实集成、核心权限或质量评测不能由框架数量抵消。</p>
+<p><strong>交什么：</strong> <code>~/agent-study/repo-qa-agent/reports/d30/final_check.md</code>，逐项证据链接；简历版本号；投递记录；下一轮唯一重点。</p>
+<p><strong>下一轮选择：</strong> 算法笔试薄弱就用接下来10个学习单元补哈希/树图/动态规划与限时输入输出；项目追问答不深就重做一个失败实验和一次独立实现；目标Python后端岗位要求更完整数据库能力时，再补关系库/索引/事务和并发。只有明确投模型算法方向，才另开ML/PyTorch/训练主线。不因一次拒绝重头读教程，也不同时开启三条补课路线。</p>
+<p><strong>最后口述：</strong> 用90秒回答“你现在能独立做什么，不能做什么，下一个最重要的改进是什么？”能把边界说清楚，就是本轮学习的真实产出。</p>
+<hr />
+<h3>本版锁定的固定输入 / 预期</h3>
+<p>代码、评测、演示、简历内容一致；真实模型与离线测试分栏；没有完成的MCP/Docker等如实写未测。</p>
+<h2>5. 写完以后，运行哪些命令</h2>
+<p><strong>下面业务入口需要先完成本日骨架，首次NotImplementedError不是环境故障。</strong></p>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python -m unittest discover -s tests -v
+python &quot;$HOME/agent-study/tools/check_day.py&quot; 30
+</code></pre>
+<p>固定测试+已创建的过去测试输出：<code>~/agent-study/repo-qa-agent/reports/d30/unittest.txt</code>。当前算法测试输出：<code>~/agent-study/repo-qa-agent/reports/d30/algorithm.txt</code>。有意未做的集成验收不在此命令中冒充通过。</p>
+<h2>6. 算法也固定文件，不临时找题</h2>
+<p>本日题目：<strong>模拟：前缀和</strong>。网页题目范围：<a href="https://leetcode.cn/problems/subarray-sum-equals-k/description/">只看这道题的题面、输入输出和约束</a>；闭卷日不打开题解。</p>
+<p>代码：<code>~/agent-study/repo-qa-agent/algorithms/d30_subarray_sum_mock.py</code>。测试：<code>~/agent-study/repo-qa-agent/algorithm_tests/test_d30_subarray_sum_mock.py</code>。记录：<code>~/agent-study/repo-qa-agent/notes/d30.md</code>。</p>
+<p>本地统一接口：<code>solve(nums: list[int], k: int) -&gt; int</code>。最小输入：<code>[1,2,3], 3</code>；预期：<code>2</code>。</p>
+<p>运行：从 <code>~/agent-study/repo-qa-agent/</code> 执行 <code>python -m unittest algorithm_tests.test_d30_subarray_sum_mock -v</code>。再补2个不同边界；树/链表必须补至少一个非空正常输入，不能只有空输入测试。45分钟后记录真正卡点，不另外开新题。</p>
+<h2>7. 收工前确认</h2>
+<p>把“是否独立、失败原因、测试输出完整路径、仍未测项、下一次第一步”写入 <code>~/agent-study/repo-qa-agent/notes/d30.md</code>。把本日岗位/简历动作写入 <code>~/agent-study/repo-qa-agent/career/d30_action.md</code>；只有真实申请才更新 <code>~/agent-study/repo-qa-agent/career/applications.md</code>。</p>
+<p><strong>绿灯：</strong> 固定测试与自加边界符合预期，关键逻辑能解释并修改，业务产物真实生成；需要真实模型的学习日另有真实证据。<strong>黄/红灯：</strong> 在当前日卡定位未过函数，不翻页堆欠账。</p>
+<p>路径不对先重新运行 <code>python &quot;$HOME/agent-study/tools/start_day.py&quot; 30</code> 看打印出的实际地址；它不会覆盖现有文件。模块找不到先确认终端根目录与解释器，不要盲目重装所有依赖。</p>
+</main></body></html>

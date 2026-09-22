@@ -1,0 +1,42 @@
+D01 补课：文件和JSONL（本次补课讲义）
+文件：/home/handsomeme/agent-study/materials/notes/01_python_io.md
+原文件行号：L1–L39（两端包含）
+    1 | # D01 补课：文件和JSONL
+    2 | 
+    3 | 本次编写的补课讲义，不是 Hello-Agents 原文。例子与通过线属于课程设计。
+    4 | 
+    5 | ## 官方补充资料
+    6 | - Python 3.12 中文教程，7.2、7.2.1、7.2.2：https://docs.python.org/zh-cn/3.12/tutorial/inputoutput.html#reading-and-writing-files
+    7 | - 不会定义函数时只补4.8：https://docs.python.org/zh-cn/3.12/tutorial/controlflow.html#defining-functions
+    8 | 
+    9 | ## 今日只学以下内容
+   10 | ### 1. 先读一段文本
+   11 | 文件路径是字符串；文件内容也是字符串，它们不是同一个东西。
+   12 | 先写一个五行以内的实验，读取当天样例，再观察 repr(text)。
+   13 | ```python
+   14 | from pathlib import Path
+   15 | p = Path.home() / "agent-study/repo-qa-agent/fixtures/mini.md"
+   16 | with p.open("r", encoding="utf-8") as handle:
+   17 |     text = handle.read()
+   18 | print(type(text), repr(text))
+   19 | ```
+   20 | 上面是读文件的演示，不是两个正式作业函数的完整答案。
+   21 | 读不存在的路径时，不要返回空字符串掩盖错误；D1契约要求FileNotFoundError。
+   22 | ### 2. JSON与JSONL
+   23 | json.dumps把一个Python对象编码为JSON字符串；json.loads做相反过程。
+   24 | JSONL在本课程中约定每条记录一个物理行。字典中字符串本身的换行由JSON编码器转义。
+   25 | 请观察下面这条结果的repr，而不是直接猜文件会有几行。
+   26 | ```python
+   27 | import json
+   28 | encoded = json.dumps({"text": "工具\n下一行"}, ensure_ascii=False)
+   29 | print(repr(encoded))
+   30 | ```
+   31 | write_jsonl用w覆盖；循环处理records；每次写一条编码结果后再写一个换行。
+   32 | 父目录不一定存在，写文件前创建父目录，exist_ok=True允许目录已经存在。
+   33 | ### 3. 如何写边界测试
+   34 | 只在 tests/test_d01_extra.py（完整路径见日卡）补自己的测试，不修改给定测试。
+   35 | 使用TemporaryDirectory，在其中建中文目录；写入中文文件；调用自己的read_text；用assertEqual比较。
+   36 | 不要把预期写成“程序不报错”就算通过；预期必须是准确的文本或异常类型。
+   37 | 
+   38 | ## 停止条件
+   39 | 能说明输入、返回值、一个失败分支；回到当天作业实现，不继续拓展新框架。

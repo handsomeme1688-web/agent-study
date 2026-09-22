@@ -1,0 +1,150 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D12｜Qdrant本地索引</title><style>body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;line-height:1.8;color:#213047;background:#f5f7fa;margin:0}main{max-width:1140px;margin:0 auto;background:white;padding:42px 48px 80px}h1{font-size:30px;line-height:1.4;color:#102a43}h2{font-size:24px;margin-top:56px;padding-top:15px;border-top:2px solid #d9e2ec;scroll-margin-top:24px}h3{font-size:19px;margin-top:30px;color:#234e70}p,li{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{border:1px solid #d9e2ec;text-align:left;vertical-align:top;padding:10px 12px;overflow-wrap:anywhere}th{background:#eaf0f6}tr:nth-child(even){background:#f8fafc}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px 20px;background:#102a43;color:#eff6ff;border-radius:7px;line-height:1.65}pre code{background:transparent}blockquote{border-left:4px solid #2f6e96;margin:20px 0;padding:12px 18px;background:#eef6fa}a{color:#0b69a3;text-decoration:none}a:hover{text-decoration:underline}.bar{font-size:13px;padding:10px 22px;background:#102a43;color:white;display:flex;justify-content:space-between}.bar a{color:white}details{border:1px solid #d9e2ec;padding:12px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}@media(max-width:720px){main{padding:20px 16px}h1{font-size:25px}table{display:block;overflow:auto}pre{padding:12px}}@media print{body{background:white}main{max-width:none;padding:0}.bar{display:none}h2{page-break-before:always}pre{background:#f4f4f4;color:black}a{color:black}}</style></head><body><div class="bar"><a href="../index.html">30天总目录</a><span>D12 / 30 · 路径与行号版</span></div><main><h1>D12｜Qdrant本地索引</h1>
+<p><strong>唯一项目根目录：</strong> <code>~/agent-study/repo-qa-agent/</code>。今日任务卡：<code>~/agent-study/handbook/days/day12.md</code>。</p>
+<h2>1. 今天具体看哪个文件、读到哪里</h2>
+<table>
+<thead>
+<tr>
+  <th>顺序</th>
+  <th>完整路径与准确范围</th>
+  <th>只抓住什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>~/agent-study/materials/notes/12_vector_store.md</code>&lt;br&gt;<strong>L1–L25</strong>&lt;br&gt;本包已提供；本次补课讲义，不是教材原文。</td>
+  <td>D12 补课：本地向量库（本次补课讲义）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>学到这里停：</strong> 能说出今天目标函数接什么输入、返回什么、至少一个错误分支；接着按下表写代码。源码中的图像不需要下载，未指定内容本日不读。</p>
+<h2>2. 先准备文件，再动手</h2>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python &quot;$HOME/agent-study/tools/start_day.py&quot; 12
+python &quot;$HOME/agent-study/tools/read_today.py&quot; 12
+</code></pre>
+<p>自动生成的阅读页：<code>~/agent-study/handbook/readings/day12.html</code>；对应带行号文本：<code>~/agent-study/handbook/readings/day12.txt</code>。</p>
+<h2>3. 今天所有文件的完整路径</h2>
+<table>
+<thead>
+<tr>
+  <th>动作</th>
+  <th>完整路径</th>
+  <th>你在这里做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/agent_lab/vector_store.py</code></td>
+  <td>创建集合、upsert、query、close；本地单进程</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/scripts/build_index.py</code></td>
+  <td>导入正式片段并建持久化索引</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/scripts/vector_search.py</code></td>
+  <td>关键词参数接收后编码并查询</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/tests/test_d12_vectors.py</code></td>
+  <td>3维玩具排序、空库、重复ID测试</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithms/d12_subarray_sum.py</code></td>
+  <td>算法独立实现；闭卷日新文件不覆盖旧答案</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/algorithm_tests/test_d12_subarray_sum.py</code></td>
+  <td>已给最小样例，你另补2个有效边界</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/notes/d12.md</code></td>
+  <td>今日复盘、算法用时、错误与下一步</td>
+</tr>
+<tr>
+  <td>新建一次 / 填骨架</td>
+  <td><code>~/agent-study/repo-qa-agent/career/d12_action.md</code></td>
+  <td>今日求职动作与真实证据</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/requirements.txt</code></td>
+  <td>增加qdrant-client实际直接依赖</td>
+</tr>
+<tr>
+  <td>修改既有文件</td>
+  <td><code>~/agent-study/repo-qa-agent/career/applications.md</code></td>
+  <td>仅记录真实岗位资格、申请和反馈</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/workspace/qdrant/</code></td>
+  <td>Qdrant自行创建内部文件，不手工命名</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d12/index.json</code></td>
+  <td>向量数量、维数与重复导入结果</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d12/search.json</code></td>
+  <td>3个真实检索问题及重启后结果</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d12/unittest.txt</code></td>
+  <td>check_day.py自动保存主项目测试输出</td>
+</tr>
+<tr>
+  <td>运行或录制后生成</td>
+  <td><code>~/agent-study/repo-qa-agent/reports/d12/algorithm.txt</code></td>
+  <td>check_day.py自动保存算法测试输出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>“新建一次”已由准备工具完成时，你只需要打开并填内容；不要删掉重建。报告初始状态NOT_DONE不是成绩。程序生成项没有实际运行结果前不要填写成功。</strong></p>
+<h2>4. 要写的接口、具体操作和停止标准</h2>
+<pre><code class="language-text">class LocalVectorStore:
+    __init__(self, path: str, collection: str, dim: int)
+    upsert(self, chunks: list[dict], vectors: list[list[float]]) -&gt; None
+    query(self, vector: list[float], k: int = 3) -&gt; list[dict]
+    count(self) -&gt; int
+    close(self) -&gt; None
+</code></pre>
+<p><strong>前置：</strong> D11数学测试通过；真实Embedding未完成可先做玩具向量测试。</p>
+<p><strong>步骤：</strong> 新建<code>~/agent-study/repo-qa-agent/agent_lab/vector_store.py</code>。先用<code>QdrantClient(&quot;:memory:&quot;)</code>与3维玩具collection练习：点1=[1,0,0]、点2=[0,1,0]、点3=[0.9,0.1,0]，用Cosine距离；查询[1,0,0]，前两名应为1和3。再用<code>QdrantClient(path=&quot;workspace/qdrant&quot;)</code>持久化真实向量。真实collection维数从Embedding配置读取；点ID用整数或合法UUID，原始chunk_id放payload，不直接把任意长字符串当数据库点ID。</p>
+<p>每个payload保存chunk_id、source、version、start_line、end_line、text。真实点ID可由源版本/路径/行范围生成稳定UUID。复用ID进行upsert；小语料版本变更时重建collection，避免新旧数据混用。一次只开一个使用该本地目录的客户端进程，退出时关闭客户端。</p>
+<p><strong>验收：</strong> 新建<code>~/agent-study/repo-qa-agent/tests/test_d12_vectors.py</code>，验证玩具排序、空库、同ID重复写入不增加点数。真实库导入20–40片段，再关掉进程重启查询，能找回来源和正文；抽5条payload与原文核对。执行<strong>见本日运行区的完整命令</strong>，保存真实检索3题的结果。</p>
+<p><strong>口述：</strong> collection维数必须与向量一致；向量库返回相似片段不是最终回答。本地开发模式不证明生产并发能力。</p>
+<p><strong>卡住：</strong> 先用3维玩具collection隔离数据库问题；512维模型向量只能进入对应维数的新collection。不要通过删校验或随机填零“修复”维数错误。</p>
+<p><strong>求职：</strong> 更新README技术栈，只加实际跑通的Embedding/向量库，不写“精通RAG”。</p>
+<h3>本版锁定的固定输入 / 预期</h3>
+<p>查询[1,0,0]对玩具点[1,0,0]、[0,1,0]、[.9,.1,0]前两名为1、3。正式库关闭再打开可查。</p>
+<h2>5. 写完以后，运行哪些命令</h2>
+<p><strong>下面业务入口需要先完成本日骨架，首次NotImplementedError不是环境故障。</strong></p>
+<pre><code class="language-bash">cd &quot;$HOME/agent-study/repo-qa-agent&quot;
+python -m pip install qdrant-client
+python -m scripts.build_index --chunks &quot;$HOME/agent-study/repo-qa-agent/data/chunks.jsonl&quot; --db &quot;$HOME/agent-study/repo-qa-agent/workspace/qdrant&quot; --report &quot;$HOME/agent-study/repo-qa-agent/reports/d12/index.json&quot;
+python -m scripts.vector_search --question &quot;工具如何注册&quot; --out &quot;$HOME/agent-study/repo-qa-agent/reports/d12/search.json&quot;
+python &quot;$HOME/agent-study/tools/check_day.py&quot; 12
+</code></pre>
+<p>固定测试+已创建的过去测试输出：<code>~/agent-study/repo-qa-agent/reports/d12/unittest.txt</code>。当前算法测试输出：<code>~/agent-study/repo-qa-agent/reports/d12/algorithm.txt</code>。有意未做的集成验收不在此命令中冒充通过。</p>
+<h2>6. 算法也固定文件，不临时找题</h2>
+<p>本日题目：<strong>和为K的子数组</strong>。网页题目范围：<a href="https://leetcode.cn/problems/subarray-sum-equals-k/description/">只看这道题的题面、输入输出和约束</a>；闭卷日不打开题解。</p>
+<p>代码：<code>~/agent-study/repo-qa-agent/algorithms/d12_subarray_sum.py</code>。测试：<code>~/agent-study/repo-qa-agent/algorithm_tests/test_d12_subarray_sum.py</code>。记录：<code>~/agent-study/repo-qa-agent/notes/d12.md</code>。</p>
+<p>本地统一接口：<code>solve(nums: list[int], k: int) -&gt; int</code>。最小输入：<code>[1,1,1], 2</code>；预期：<code>2</code>。</p>
+<p>运行：从 <code>~/agent-study/repo-qa-agent/</code> 执行 <code>python -m unittest algorithm_tests.test_d12_subarray_sum -v</code>。再补2个不同边界；树/链表必须补至少一个非空正常输入，不能只有空输入测试。45分钟后记录真正卡点，不另外开新题。</p>
+<h2>7. 收工前确认</h2>
+<p>把“是否独立、失败原因、测试输出完整路径、仍未测项、下一次第一步”写入 <code>~/agent-study/repo-qa-agent/notes/d12.md</code>。把本日岗位/简历动作写入 <code>~/agent-study/repo-qa-agent/career/d12_action.md</code>；只有真实申请才更新 <code>~/agent-study/repo-qa-agent/career/applications.md</code>。</p>
+<p><strong>绿灯：</strong> 固定测试与自加边界符合预期，关键逻辑能解释并修改，业务产物真实生成；需要真实模型的学习日另有真实证据。<strong>黄/红灯：</strong> 在当前日卡定位未过函数，不翻页堆欠账。</p>
+<p>路径不对先重新运行 <code>python &quot;$HOME/agent-study/tools/start_day.py&quot; 12</code> 看打印出的实际地址；它不会覆盖现有文件。模块找不到先确认终端根目录与解释器，不要盲目重装所有依赖。</p>
+</main></body></html>

@@ -1,0 +1,43 @@
+{
+  "revision": "b4aca1af44b7a492b4bfdec5aa100d556c65db54",
+  "source_root": "~/agent-study/materials/hello-agents",
+  "chunk_max_lines": 15,
+  "sources": [
+    {
+      "source": "docs/chapter4/第四章 智能体经典范式构建.md",
+      "ranges": [
+        [
+          135,
+          145
+        ]
+      ]
+    },
+    {
+      "source": "docs/chapter7/第七章 构建你的Agent框架.md",
+      "ranges": [
+        [
+          1349,
+          1515
+        ]
+      ]
+    },
+    {
+      "source": "docs/chapter8/第八章 记忆与检索.md",
+      "ranges": [
+        [
+          1085,
+          1126
+        ]
+      ]
+    },
+    {
+      "source": "code/chapter4/ReAct.py",
+      "ranges": [
+        [
+          25,
+          91
+        ]
+      ]
+    }
+  ]
+}

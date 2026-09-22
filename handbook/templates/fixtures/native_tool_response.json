@@ -1,0 +1,8 @@
+{
+  "id": "call_fixture_01",
+  "type": "function",
+  "function": {
+    "name": "search_docs",
+    "arguments": "{\"query\": \"工具\", \"k\": 3}"
+  }
+}

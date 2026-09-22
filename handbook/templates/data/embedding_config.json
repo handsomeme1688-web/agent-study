@@ -1,0 +1,9 @@
+{
+  "model": "BAAI/bge-small-zh-v1.5",
+  "revision": "TO_BE_MEASURED",
+  "device": "cpu",
+  "dimension": null,
+  "normalize": true,
+  "query_prefix": "按模型卡核对并填写",
+  "verified": false
+}
