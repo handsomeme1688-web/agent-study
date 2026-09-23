@@ -1,11 +1,7 @@
 {
-  "editor.quickSuggestions": {
-    "comments": "off",
-    "strings": "off",
-    "other": "off"
-  },
-  "editor.suggestOnTriggerCharacters": false,
   "editor.inlineSuggest.enabled": false,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.extraPaths": ["${workspaceFolder}/repo-qa-agent"],
   "python.defaultInterpreterPath": "${workspaceFolder}/repo-qa-agent/.venv/bin/python",
   "python.terminal.executeInFileDir": false,
   "terminal.integrated.env.linux": {

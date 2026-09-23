@@ -1,0 +1,13 @@
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python -m unittest algorithm_tests.test_d02_two_sum_rewrite -v
+test_minimum_example (algorithm_tests.test_d02_two_sum_rewrite.TestAlgorithmD02.test_minimum_example) ... ok
+test_no_self_pairing (algorithm_tests.test_d02_two_sum_rewrite.TestAlgorithmD02.test_no_self_pairing)
+经典陷阱：先查后登记，不能返回 [0, 0]（答案不含重复值，但错误实现仍会自配） ... ok
+test_no_solution (algorithm_tests.test_d02_two_sum_rewrite.TestAlgorithmD02.test_no_solution)
+无解：走到最后返回空列表，测 return [] 这个防御分支 ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT_CODE=0
