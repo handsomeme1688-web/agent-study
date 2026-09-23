@@ -30,3 +30,5 @@ class TestD01(unittest.TestCase):
     def test_empty_records(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)/'out.jsonl';write_jsonl([],str(p));self.assertEqual(p.read_text(),'')
+    
+    

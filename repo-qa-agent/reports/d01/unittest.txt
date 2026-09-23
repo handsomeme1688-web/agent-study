@@ -1,0 +1,15 @@
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python -m unittest tests.test_d01_extra tests.test_d01_io -v
+test_required_cases (tests.test_d01_extra.TestD01Student.test_required_cases) ... ok
+test_empty (tests.test_d01_io.TestD01.test_empty) ... ok
+test_empty_records (tests.test_d01_io.TestD01.test_empty_records) ... ok
+test_jsonl_roundtrip_and_chinese (tests.test_d01_io.TestD01.test_jsonl_roundtrip_and_chinese) ... ok
+test_missing (tests.test_d01_io.TestD01.test_missing) ... ok
+test_overwrite_not_append (tests.test_d01_io.TestD01.test_overwrite_not_append) ... ok
+test_utf8 (tests.test_d01_io.TestD01.test_utf8) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK
+
+EXIT_CODE=0

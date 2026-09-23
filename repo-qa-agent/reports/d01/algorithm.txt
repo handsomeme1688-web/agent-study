@@ -1,0 +1,13 @@
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python -m unittest algorithm_tests.test_d01_two_sum -v
+test_minimum_example (algorithm_tests.test_d01_two_sum.TestAlgorithmD01.test_minimum_example) ... ok
+test_pair_found_late (algorithm_tests.test_d01_two_sum.TestAlgorithmD01.test_pair_found_late)
+经典陷阱：先查后登记，不能返回 [0, 0] ... ok
+test_same_value_twice (algorithm_tests.test_d01_two_sum.TestAlgorithmD01.test_same_value_twice)
+同一个值出现两次：不能用同一个下标两次 ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT_CODE=0
