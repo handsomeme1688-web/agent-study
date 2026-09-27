@@ -1,0 +1,12 @@
+LC 49 字母异位词分组
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python -m unittest algorithm_tests.interview.test_lc0049_group_anagrams -v
+test_case_01 (algorithm_tests.interview.test_lc0049_group_anagrams.LC0049Tests.test_case_01) ... ok
+test_case_02 (algorithm_tests.interview.test_lc0049_group_anagrams.LC0049Tests.test_case_02) ... ok
+test_case_03 (algorithm_tests.interview.test_lc0049_group_anagrams.LC0049Tests.test_case_03) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT_CODE=0

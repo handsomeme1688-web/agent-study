@@ -6,3 +6,4 @@ workspace/
 .env.*
 !.env.example
 reports/*/private*
+*.md

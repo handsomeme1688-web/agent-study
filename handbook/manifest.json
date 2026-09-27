@@ -4439,5 +4439,13 @@
       "path": "LICENSE.txt",
       "git_blob_sha1": "cbe5ad1670406e4402217edfb82d2c56af7e8631"
     }
-  }
+  },
+  "base_tests": [
+    "tests/test_d01_io.py",
+    "tests/test_d02_chunking.py",
+    "tests/test_d03_retrieval.py",
+    "tests/test_d04_config.py",
+    "tests/test_d05_tools.py",
+    "tests/test_d06_loop.py"
+  ]
 }

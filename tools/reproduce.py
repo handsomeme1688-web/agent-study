@@ -23,8 +23,10 @@ def check():
     if not TARGET.exists():
         raise SystemExit("请先运行 reproduce.py prepare。")
     lock = TARGET / "requirements.lock.txt"
-    if not lock.exists() or "NOT_DONE" in lock.read_text(encoding="utf-8"):
-        raise SystemExit(f"请先完成真实依赖锁文件：{lock}，不要把占位文件当可复现依赖。")
+    lock_text = lock.read_text(encoding="utf-8") if lock.is_file() else ""
+    requirements = [line for line in lock_text.splitlines() if line.strip() and not line.lstrip().startswith("#")]
+    if not requirements or "NOT_DONE" in lock_text:
+        raise SystemExit(f"请先完成真实依赖锁文件：{lock}；空文件、仅注释或占位文件不能用于复现。")
     env = TARGET / ".venv"
     if not env.exists():
         venv.EnvBuilder(with_pip=True).create(env)

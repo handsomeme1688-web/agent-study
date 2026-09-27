@@ -1,0 +1,15 @@
+LC 136 只出现一次的数字
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python -m unittest algorithm_tests.interview.test_lc0136_single_number -v
+test_case_01 (algorithm_tests.interview.test_lc0136_single_number.LC0136Tests.test_case_01) ... ok
+test_case_02 (algorithm_tests.interview.test_lc0136_single_number.LC0136Tests.test_case_02) ... ok
+test_case_03 (algorithm_tests.interview.test_lc0136_single_number.LC0136Tests.test_case_03) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT_CODE=0
+
+A01：1/1 题本地测试通过。
+EXIT_CODE=0

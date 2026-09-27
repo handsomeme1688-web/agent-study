@@ -1,0 +1,117 @@
+工具接口、参数定义与注册职责
+文件：/home/handsomeme/agent-study/materials/hello-agents/docs/chapter7/第七章 构建你的Agent框架.md
+原文件行号：L1349–L1436（两端包含）
+ 1349 | ## 7.5 工具系统
+ 1350 | 
+ 1351 | 本节内容将在前面构建的Agent基础架构上，深入探讨工具系统的设计与实现。我们将从基础设施建设开始，逐步深入到自定义开发设计。本节的学习目标围绕以下三个核心方面展开：
+ 1352 | 
+ 1353 | 1. **统一的工具抽象与管理**：建立标准化的Tool基类和ToolRegistry注册机制，为工具的开发、注册、发现和执行提供统一的基础设施。
+ 1354 | 
+ 1355 | 2. **实战驱动的工具开发**：以数学计算工具为案例，展示如何设计和实现自定义工具，让读者掌握工具开发的完整流程。
+ 1356 | 
+ 1357 | 3. **高级整合与优化策略**：通过多源搜索工具的设计，展示如何整合多个外部服务，实现智能后端选择、结果合并和容错处理，体现工具系统在复杂场景下的设计思维。
+ 1358 | 
+ 1359 | ### 7.5.1 工具基类与注册机制设计
+ 1360 | 
+ 1361 | 在构建可扩展的工具系统时，我们需要首先建立一套标准化的基础设施。这套基础设施包括Tool基类、ToolRegistry注册表，以及工具管理机制。
+ 1362 | 
+ 1363 | （1）Tool基类的抽象设计
+ 1364 | 
+ 1365 | Tool基类是整个工具系统的核心抽象，它定义了所有工具必须遵循的接口规范：
+ 1366 | 
+ 1367 | ````python
+ 1368 | class Tool(ABC):
+ 1369 |     """工具基类"""
+ 1370 | 
+ 1371 |     def __init__(self, name: str, description: str):
+ 1372 |         self.name = name
+ 1373 |         self.description = description
+ 1374 | 
+ 1375 |     @abstractmethod
+ 1376 |     def run(self, parameters: Dict[str, Any]) -> str:
+ 1377 |         """执行工具"""
+ 1378 |         pass
+ 1379 | 
+ 1380 |     @abstractmethod
+ 1381 |     def get_parameters(self) -> List[ToolParameter]:
+ 1382 |         """获取工具参数定义"""
+ 1383 |         pass
+ 1384 | ````
+ 1385 | 这个设计体现了面向对象设计的核心思想：通过统一的`run`方法接口，所有工具都能以一致的方式执行，接受字典参数并返回字符串结果，确保了框架的一致性。同时，工具具备了自描述能力，通过`get_parameters`方法能够清晰地告诉调用者自己需要什么参数，这种内省机制为自动化文档生成和参数验证提供了基础。而name和description等元数据的设计，则让工具系统具备了良好的可发现性和可理解性。
+ 1386 | 
+ 1387 | （2）ToolParameter参数定义系统
+ 1388 | 
+ 1389 | 为了支持复杂的参数验证和文档生成，我们设计了ToolParameter类：
+ 1390 | 
+ 1391 | ````python
+ 1392 | class ToolParameter(BaseModel):
+ 1393 |     """工具参数定义"""
+ 1394 |     name: str
+ 1395 |     type: str
+ 1396 |     description: str
+ 1397 |     required: bool = True
+ 1398 |     default: Any = None
+ 1399 | ````
+ 1400 | 这种设计让工具能够精确描述自己的参数需求，支持类型检查、默认值设置和文档自动生成。
+ 1401 | 
+ 1402 | （3）ToolRegistry注册表的实现
+ 1403 | 
+ 1404 | ToolRegistry是工具系统的管理中枢，它提供了工具的注册、发现、执行等核心功能，在这一节我们主要用到以下功能：
+ 1405 | 
+ 1406 | ````python
+ 1407 | class ToolRegistry:
+ 1408 |     """HelloAgents工具注册表"""
+ 1409 | 
+ 1410 |     def __init__(self):
+ 1411 |         self._tools: dict[str, Tool] = {}
+ 1412 |         self._functions: dict[str, dict[str, Any]] = {}
+ 1413 | 
+ 1414 |     def register_tool(self, tool: Tool):
+ 1415 |         """注册Tool对象"""
+ 1416 |         if tool.name in self._tools:
+ 1417 |             print(f"⚠️ 警告:工具 '{tool.name}' 已存在，将被覆盖。")
+ 1418 |         self._tools[tool.name] = tool
+ 1419 |         print(f"✅ 工具 '{tool.name}' 已注册。")
+ 1420 |         
+ 1421 |     def register_function(self, name: str, description: str, func: Callable[[str], str]):
+ 1422 |         """
+ 1423 |         直接注册函数作为工具（简便方式）
+ 1424 | 
+ 1425 |         Args:
+ 1426 |             name: 工具名称
+ 1427 |             description: 工具描述
+ 1428 |             func: 工具函数，接受字符串参数，返回字符串结果
+ 1429 |         """
+ 1430 |         if name in self._functions:
+ 1431 |             print(f"⚠️ 警告:工具 '{name}' 已存在，将被覆盖。")
+ 1432 | 
+ 1433 |         self._functions[name] = {
+ 1434 |             "description": description,
+ 1435 |             "func": func
+ 1436 |         }
+
+D03 补课：检索规则与工具边界（本次补课讲义）
+文件：/home/handsomeme/agent-study/materials/notes/03_python_retrieval.md
+原文件行号：L1–L22（两端包含）
+    1 | # D03 补课：检索规则与工具边界
+    2 | 
+    3 | 本次编写的补课讲义，不是 Hello-Agents 原文。例子与通过线属于课程设计。
+    4 | 
+    5 | ## 官方补充资料
+    6 | - Python集合与字典5.4、5.5：https://docs.python.org/zh-cn/3.12/tutorial/datastructures.html
+    7 | 
+    8 | ## 今日只学以下内容
+    9 | ### 1. 规则已经固定，不需要发明检索算法
+   10 | query按空白分词，每个词casefold，再去重。中文例子请主动使用空格分开关键词。
+   11 | 每个不同词在片段正文里出现就计1分，重复出现不重复加分。
+   12 | 只保留正分；分数降序，相同分数按id升序；最后取k条。
+   13 | 不要把原chunks里的字典就地加score。用浅拷贝或新字典构造返回记录。
+   14 | ### 2. 输入边界
+   15 | k必须是1到5的严格整数。bool在Python里与int有继承关系，按本课程规则要单独拒绝。
+   16 | 空query合法但没有命中，返回[]；read_chunk未知ID抛KeyError。
+   17 | ### 3. 先验证工具，后接模型
+   18 | 今天只实现确定性函数。模型的工作是提出工具名称和参数，不是替代函数执行。
+   19 | read_chunk只接已经登记的片段ID，不能因为找不到ID就尝试打开用户传来的路径。
+   20 | 
+   21 | ## 停止条件
+   22 | 能说明输入、返回值、一个失败分支；回到当天作业实现，不继续拓展新框架。
