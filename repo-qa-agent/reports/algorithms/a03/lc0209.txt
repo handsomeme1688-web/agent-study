@@ -1,0 +1,12 @@
+LC 209 长度最小的子数组
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python3 -m unittest algorithm_tests.interview.test_lc0209_minimum_size_subarray_sum -v
+test_case_01 (algorithm_tests.interview.test_lc0209_minimum_size_subarray_sum.LC0209Tests.test_case_01) ... ok
+test_case_02 (algorithm_tests.interview.test_lc0209_minimum_size_subarray_sum.LC0209Tests.test_case_02) ... ok
+test_case_03 (algorithm_tests.interview.test_lc0209_minimum_size_subarray_sum.LC0209Tests.test_case_03) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT_CODE=0

@@ -1,0 +1,4 @@
+{"line": 1, "ok": true, "type": "tool", "name": "search_docs", "result": [{"id": "fixtures/mini.md#L1-L3", "source": "fixtures/mini.md", "title": "工具", "start_line": 1, "end_line": 3, "text": "# 工具\n工具由宿主程序执行。\n", "score": 2}, {"id": "fixtures/mini.md#L7-L8", "source": "fixtures/mini.md", "title": "安全", "start_line": 7, "end_line": 8, "text": "## 安全\n未知工具必须拒绝执行。", "score": 2}]}
+{"line": 2, "ok": true, "type": "final", "answer": "证据不足"}
+{"line": 3, "ok": false, "error": "ValueError"}
+{"line": 4, "ok": false, "error": "ValueError"}
