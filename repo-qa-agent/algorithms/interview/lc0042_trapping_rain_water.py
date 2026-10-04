@@ -8,7 +8,18 @@
 from typing import Any, Optional, List, Dict, Tuple
 from algorithms.interview._structures import ListNode, TreeNode, Node
 
+'''
+在接雨水时本能的想法是：找波谷、算水坑、大面积减初始面积。这是“面”的视角。
+微观/点视角（破局关键）：把总收益拆分成每个元素的独立收益
 
+抓住双指针的核心支柱：“单调性”与“无悔排除”
+双指针不是靠“猜”哪边该动，它的数学本质是搜索空间的无悔剪枝
+
+建立“三问解题闭环”:
+    1. 目标计算单元是什么？
+    2. 影响当前单元答案的极限约束是什么？
+    3. 怎样利用单边信息做决策？
+'''
 class Solution:
     def trap(self, height: list[int]) -> int:
         n = len(height)

@@ -1,0 +1,12 @@
+LC 560 和为 K 的子数组
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python3 -m unittest algorithm_tests.interview.test_lc0560_subarray_sum_equals_k -v
+test_case_01 (algorithm_tests.interview.test_lc0560_subarray_sum_equals_k.LC0560Tests.test_case_01) ... ok
+test_case_02 (algorithm_tests.interview.test_lc0560_subarray_sum_equals_k.LC0560Tests.test_case_02) ... ok
+test_case_03 (algorithm_tests.interview.test_lc0560_subarray_sum_equals_k.LC0560Tests.test_case_03) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT_CODE=0

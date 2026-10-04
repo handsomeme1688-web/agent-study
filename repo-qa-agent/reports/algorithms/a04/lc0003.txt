@@ -1,0 +1,12 @@
+LC 3 无重复字符的最长子串
+$ /home/handsomeme/agent-study/repo-qa-agent/.venv/bin/python3 -m unittest algorithm_tests.interview.test_lc0003_longest_substring_without_repeating_characters -v
+test_case_01 (algorithm_tests.interview.test_lc0003_longest_substring_without_repeating_characters.LC0003Tests.test_case_01) ... ok
+test_case_02 (algorithm_tests.interview.test_lc0003_longest_substring_without_repeating_characters.LC0003Tests.test_case_02) ... ok
+test_case_03 (algorithm_tests.interview.test_lc0003_longest_substring_without_repeating_characters.LC0003Tests.test_case_03) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT_CODE=0
